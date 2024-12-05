@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic DOM Manipulation</title>
+  <style>
+  
+  
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 5px 0;
+    }
+
+    .odd {
+      font-weight: bold;
+      color: blue;
+    }
+
+    .even {
+      font-style: italic;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <ul id="item-list">
+     <li class="odd">Item 1</li>
+     <li class="even">Item 2</li>
+     <li class="odd">Item 3</li>
+   </ul>
+   <button id="add-item-btn">Add Item</button>
+
+   <script>
+  
+  
+  
+    const ul = document.querySelector('#item-list');
+    const button = document.querySelector('#add-item-btn');
+
+    button.addEventListener('click', () => {
+      
+      const currentItemCount = ul.children.length;
+
+      const newItem = document.createElement('li');
+      newItem.textContent = 'Item';
+
+      if ((currentItemCount + 1) % 2 === 0) {
+        newItem.classList.add('even');
+      } else {
+        newItem.classList.add('odd');
+      }
+      
+      
+      ul.appendChild(newItem);
+    });
+  </script>
+</body>
+</html>
